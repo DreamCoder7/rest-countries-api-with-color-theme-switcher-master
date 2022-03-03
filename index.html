@@ -6,9 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>rest-countries-api-with-color-theme-switcher-master</title>
     <link rel="stylesheet" href="src/css/style.css" />
-    <script defer src="src/js/script.js"></script>
+    <script type="module" defer src="src/js/controller.js"></script>
   </head>
   <body>
-    <h1>Country</h1>
+    <header class="header">
+      <nav class="nav">
+        <p class="nav__logo">Where in the world?</p>
+        <button class="nav__btn">
+          <img src="src/icons/moon-o.svg" alt="moon icon" class="nav__icon" />
+          Dark Mode
+        </button>
+      </nav>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="main__nav">
+          <div class="main__nav--search">
+            <img
+              src="src/icons/search.svg"
+              alt="search icon"
+              class="search__icon"
+            />
+            <input
+              type="text"
+              class="search__field"
+              placeholder="Search for a country..."
+              required
+            />
+          </div>
+          <div class="main__nav--filter">
+            <button class="main__nav--btn">
+              Filter by Region
+              <img
+                src="src/icons/keyboard_arrow_down.svg"
+                alt="down arrow"
+                class="filter__icon"
+              />
+            </button>
+            <!-- TEMP -->
+            <div class="options">
+              <input type="submit" value="Africa" />
+              <input type="submit" value="America" />
+              <input type="submit" value="Asia" />
+              <input type="submit" value="Europe" />
+              <input type="submit" value="Oceania" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="country__container">
+        <div class="country">
+          <img class="country__img" alt="country image" />
+          <div class="country__data">
+            <h3 class="country__name">COUNTRY</h3>
+            <p class="country__row"><span>Population:</span>81,770,900</p>
+            <p class="country__row"><span>Region:</span>Europe</p>
+            <p class="country__row"><span>Capital:</span>Berlin</p>
+          </div>
+        </div>
+      </div>
+      <aside class="country__detial">
+        <!-- <img class="country__img" src="" />
+        <div class="country__data">
+          <h3 class="country__name">COUNTRY</h3>
+          <h4 class="country__region">REGION</h4>
+          <p class="country__row"><span>👫</span>POP people</p>
+          <p class="country__row"><span>🗣️</span>LANG</p>
+          <p class="country__row"><span>💰</span>CUR</p>
+        </div> -->
+      </aside>
+      <!-- <article class="country">
+        <img class="country__img" src="" />
+        <div class="country__data">
+          <h3 class="country__name">COUNTRY</h3>
+          <h4 class="country__region">REGION</h4>
+          <p class="country__row"><span>👫</span>POP people</p>
+          <p class="country__row"><span>🗣️</span>LANG</p>
+          <p class="country__row"><span>💰</span>CUR</p>
+        </div>
+      </article> -->
+    </main>
   </body>
 </html>
