@@ -1,23 +1,22 @@
 import View from "./View.js";
 
 class SearchView extends View {
-  //   _parentEl = document.querySelector(".main__nav--search");
-  _parentEl = document.querySelector(".search__field");
+  _parentElement = document.querySelector(".search__field");
 
   getQuery() {
-    // const query = this._parentEl.querySelector(".search__field").value;
-    const query = this._parentEl.value;
-    // this._clearSearch();
+    const query = document.querySelector(".search__field").value;
+    console.log(query);
     return query;
   }
 
-  // _clearSearch() {
-  //   this._parentEl.querySelector(".search__field").value = "";
-  // }
-
-  addHundlerSearch() {
-    this._parentEl.addEventListener("keypress", function (e) {
-      e.preventDefault();
+  addHundlerSearchInput(hundler) {
+    this._parentElement.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        const query = document.querySelector(".search__field").value;
+        console.log(query);
+        // console.log(this.getQuery());
+        hundler(query);
+      }
     });
   }
 }
