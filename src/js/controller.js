@@ -1,21 +1,23 @@
 import { async } from "regenerator-runtime";
 import * as model from "./model.js";
 import countryView from "./View/countryView.js";
+import countryDetialView from "./View/countryDetialView.js";
 import searchView from "./View/searchView.js";
 import darkModeView from "./View/darkModeView.js";
-import countryDetialView from "./View/countryDetialView.js";
 
 const controlCountry = async function (id) {
   await model.loadCountry(id);
 
+  // console.log(searchView.getQuery());
+
   countryView.render(model.state.country);
-  console.log(model.state.country);
 };
 
-const controlCountryDetial = async function () {
-  await model.loadCountryDetial(searchView.getQuery());
+const controlCountryDetial = async function (id) {
+  await model.loadCountryDetial(id);
 
   countryDetialView.render(model.state.countryDetial);
+  countryDetialView._toggleWindows();
 };
 
 const init = function () {
@@ -23,7 +25,6 @@ const init = function () {
   countryDetialView.addHundlerCountryDetial(controlCountryDetial);
 };
 init();
-
 // TEMP
 /*
 const football = async function () {

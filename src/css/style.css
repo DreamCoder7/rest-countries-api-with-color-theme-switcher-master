@@ -60,6 +60,8 @@ body {
 .main {
   background-color: hsl(0, 0%, 98%);
   min-height: 100vh;
+
+  position: relative;
 }
 
 .container {
@@ -194,6 +196,62 @@ body {
   line-height: 1.7;
 }
 
+/* Country detial */
+.main__nav--back {
+  position: absolute;
+  top: 5rem;
+}
+
+.back__btn {
+  background: none;
+  border: none;
+  box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.1);
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 4px;
+  padding: 4px 2.4rem 4px 1.8rem;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+}
+
+.country__detial--container {
+  position: absolute;
+  top: 12.8rem;
+  width: 100%;
+}
+
+.country__detial {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6rem;
+  padding: 0 8rem;
+}
+
+.country__detial .country__img {
+  background-color: red;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  height: 100%;
+}
+
+.country__info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 1rem;
+  padding-top: 1.4rem;
+  padding-bottom: 5rem;
+}
+
+.country__detial .country__name {
+  font-size: 2.4rem;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
 /* Dark mode */
 .dark__mode {
   transition: all 0.4s;
@@ -203,7 +261,8 @@ body {
 .dark__mode .country,
 .dark__mode .search__field,
 .dark__mode .options,
-.dark__mode .main__nav--btn {
+.dark__mode .main__nav--btn,
+.dark__mode .back__btn {
   background-color: hsl(209, 23%, 22%);
 }
 
@@ -221,7 +280,9 @@ body {
   color: hsl(0, 0%, 100%);
 }
 
+.dark__mode .back__btn,
 .dark__mode .options input,
+.dark__mode .search__field,
 .dark__mode .search__field::placeholder,
 .dark__mode .country__row,
 .dark__mode .main__nav--btn {

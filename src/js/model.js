@@ -9,7 +9,7 @@ export const state = {
   countryDetial: [],
   query: "",
 };
-console.log(state);
+// console.log(state);
 
 export const loadCountry = async function (id) {
   try {
@@ -30,7 +30,6 @@ export const loadCountry = async function (id) {
 export const loadCountryDetial = async function (id) {
   try {
     const data = await getJSON(`${API}${id}`);
-    console.log(data);
 
     state.countryDetial = {
       flag: data[0].flag,
