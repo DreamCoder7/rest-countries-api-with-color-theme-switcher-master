@@ -3,21 +3,27 @@ import View from "./View.js";
 class FilterView extends View {
   _parentElement = document.querySelector(".options");
 
-  _optionInput = document.querySelectorAll(".option__input");
+  _countryEl = document.querySelectorAll(".country");
+  //   _optionBtns = document.querySelectorAll("option__btn");
 
   constructor() {
     super();
-    this.addHundlerFilter();
+    // console.log(this._addHundlerFilter());
+    // this._countryFilter();
   }
 
-  addHundlerFilter() {
-    this._parentElement.addEventListener("click", function (e) {
-      const input = e.target.closest("option__input");
+  //   _countryFilter() {
+  //     this._countryEl.forEach((country) => {
+  //       return country;
+  //     });
+  //   }
 
+  addHundlerFilter(hundler) {
+    this._parentElement.addEventListener("click", function (e) {
+      const input = e.target.closest(".option__btn");
+      // console.log(input.textContent);
       if (!input) return;
-      this._optionInput.forEach((input) => {
-        console.log(input.value);
-      });
+      hundler(input.textContent);
     });
   }
 }

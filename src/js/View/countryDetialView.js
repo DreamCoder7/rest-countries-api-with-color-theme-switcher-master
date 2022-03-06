@@ -40,6 +40,8 @@ class CountryDetialView extends View {
 
   addHundlerCountryDetial(hundler) {
     this._countryContainer.addEventListener("click", function (e) {
+      const countryEl = e.target.closest(".country");
+      if (!countryEl) return;
       const country = document.querySelector(".country__name");
       hundler(country.textContent);
     });

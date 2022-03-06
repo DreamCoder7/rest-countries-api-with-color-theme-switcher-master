@@ -10,7 +10,7 @@ class CountryView extends View {
                 <div class="country__data">
                     <h3 class="country__name">${this._data.name}</h3>
                     <p class="country__row"><span>Population:</span>${this._data.population}</p>
-                    <p class="country__row"><span>Region:</span>${this._data.region}</p>
+                    <p class="country__row country__region"><span>Region:</span>${this._data.region}</p>
                     <p class="country__row"><span>Capital:</span>${this._data.capital}</p>
                 </div>
             </div>

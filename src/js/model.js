@@ -9,11 +9,12 @@ export const state = {
   countryDetial: [],
   query: "",
 };
-// console.log(state);
+console.log(state);
 
 export const loadCountry = async function (id) {
   try {
     const data = await getJSON(`${API}${id}`);
+    console.log(data);
 
     state.country = {
       flag: data[0].flag,

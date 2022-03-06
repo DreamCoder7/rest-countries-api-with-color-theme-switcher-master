@@ -4,6 +4,7 @@ import countryView from "./View/countryView.js";
 import countryDetialView from "./View/countryDetialView.js";
 import searchView from "./View/searchView.js";
 import darkModeView from "./View/darkModeView.js";
+import countryFilterView from "./View/countryFilterView.js";
 
 const controlCountry = async function (id) {
   await model.loadCountry(id);
@@ -20,9 +21,24 @@ const controlCountryDetial = async function (id) {
   countryDetialView._toggleWindows();
 };
 
+const controlCountryFilter = function (region) {
+  const country = document.querySelectorAll(".country__region");
+
+  country.forEach((c) => {
+    if (c.childNodes[1].textContent === region) {
+      const countryEl = c.closest(".country");
+      countryEl.style.gridRow = 1;
+      
+    } else {
+      console.log("Not Found!");
+    }
+  });
+};
+
 const init = function () {
   searchView.addHundlerSearchInput(controlCountry);
   countryDetialView.addHundlerCountryDetial(controlCountryDetial);
+  countryFilterView.addHundlerFilter(controlCountryFilter);
 };
 init();
 // TEMP
