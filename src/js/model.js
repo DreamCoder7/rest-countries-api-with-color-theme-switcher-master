@@ -2,7 +2,6 @@ import View from "./View/View.js";
 import CountryView from "./View/countryView.js";
 import { TIMEOUT_SEC, API } from "./config.js";
 import { getJSON } from "./helper.js";
-// import searchView from "./View/searchView.js";
 
 export const state = {
   country: [],
@@ -13,9 +12,8 @@ export const state = {
 export const loadCountry = async function () {
   try {
     // const data = await getJSON(`${API}${id}`);
-    const data = await getJSON(`${API}all`); // TEMP : All country
-
-    // TEMP : All country
+    const data = await getJSON(`${API}all`); 
+    
     state.country = data.map((c) => {
       return {
         flag: c.flag,
@@ -25,8 +23,7 @@ export const loadCountry = async function () {
         capital: c.capital,
       };
     });
-    // TEMP
-
+    
     // state.country = {
     //   flag: data[0].flag,
     //   name: data[0].name,
@@ -61,6 +58,3 @@ export const loadCountryDetial = async function (id) {
   }
 };
 
-// export const loadSearchResult = function (id) {
-//   console.log(id);
-// };

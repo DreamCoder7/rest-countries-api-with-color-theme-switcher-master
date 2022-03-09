@@ -2,10 +2,11 @@
   "name": "rest-countries-api-with-color-theme-switcher-master",
   "version": "1.0.0",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
   },
   "repository": "https://github.com/redstorm-hub/rest-countries-api-with-color-theme-switcher-master.git",
-  "author": "redstorm-hub <nigussieabreham80@gmail.com>",
+  "author": "Abreham",
   "license": "MIT",
   "devDependencies": {
     "parcel": "^2.3.2"

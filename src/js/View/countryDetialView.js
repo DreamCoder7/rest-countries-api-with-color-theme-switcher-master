@@ -41,7 +41,6 @@ class CountryDetialView extends View {
     this._countryContainer.addEventListener("click", function (e) {
       const countryEl = e.target.closest(".country");
       if (!countryEl) return;
-      // const country = document.querySelectorAll(".country__name");
       const country = countryEl.querySelector(".country__name");
       hundler(country.textContent);
     });

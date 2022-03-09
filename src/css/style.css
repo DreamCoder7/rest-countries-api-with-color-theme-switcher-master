@@ -296,7 +296,7 @@ body {
 
 /* Dark mode */
 .dark__mode {
-  transition: all 0.4s;
+  transition: all 0.2s;
 }
 
 .dark__mode .country__borders {

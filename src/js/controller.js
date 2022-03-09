@@ -30,11 +30,7 @@ const controlSearch = function (target) {
     return country.name.toLowerCase().includes(target);
   });
 
-  if (search.length > 1) {
-    search.map((country) => countryView.render(country));
-  } else {
-    countryView.render(search);
-  }
+  search.length > 1 ? search.map((country) => countryView.render(country)) : "";
 };
 
 const controlFilter = async function (id) {
