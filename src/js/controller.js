@@ -6,12 +6,14 @@ import searchView from "./View/searchView.js";
 import darkModeView from "./View/darkModeView.js";
 import countryFilterView from "./View/countryFilterView.js";
 
-const controlCountry = async function (id) {
-  await model.loadCountry(id);
+const controlCountry = async function () {
+  // await model.loadCountry(id);
+  await model.loadCountry();
 
-  // console.log(searchView.getQuery());
-
-  countryView.render(model.state.country);
+  // render country
+  model.state.country.forEach((country) => {
+    countryView.render(country);
+  });
 };
 
 const controlCountryDetial = async function (id) {
@@ -21,24 +23,33 @@ const controlCountryDetial = async function (id) {
   countryDetialView._toggleWindows();
 };
 
-const controlCountryFilter = function (region) {
-  const country = document.querySelectorAll(".country__region");
+const controlSearch = function (target) {
+  const search = model.state.country.filter((country) => {
+    return country.name.toLowerCase().includes(target);
+  });
 
-  country.forEach((c) => {
-    if (c.childNodes[1].textContent === region) {
-      const countryEl = c.closest(".country");
-      countryEl.style.gridRow = 1;
-      
-    } else {
-      console.log("Not Found!");
+  if (search.length > 1) {
+    search.map((country) => countryView.render(country));
+  } else {
+    countryView.render(search);
+  }
+};
+
+const controlFilter = async function (id) {
+  await model.loadCountry();
+
+  model.state.country.forEach((country) => {
+    if (country.region === id) {
+      countryView.render(country);
     }
   });
 };
 
 const init = function () {
-  searchView.addHundlerSearchInput(controlCountry);
+  searchView.addHundlerSearchInput(controlSearch);
   countryDetialView.addHundlerCountryDetial(controlCountryDetial);
-  countryFilterView.addHundlerFilter(controlCountryFilter);
+  countryFilterView.addHundlerFilter(controlFilter);
+  controlCountry();
 };
 init();
 // TEMP

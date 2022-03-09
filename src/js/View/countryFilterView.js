@@ -3,26 +3,26 @@ import View from "./View.js";
 class FilterView extends View {
   _parentElement = document.querySelector(".options");
 
-  _countryEl = document.querySelectorAll(".country");
-  //   _optionBtns = document.querySelectorAll("option__btn");
+  _mainNavBtn = document.querySelector(".main__nav--btn");
 
   constructor() {
     super();
-    // console.log(this._addHundlerFilter());
-    // this._countryFilter();
+    this.optionFilter();
   }
 
-  //   _countryFilter() {
-  //     this._countryEl.forEach((country) => {
-  //       return country;
-  //     });
-  //   }
+  toggleOption() {
+    this._parentElement.classList.toggle("option__hidden");
+  }
+
+  optionFilter() {
+    this._mainNavBtn.addEventListener("click", this.toggleOption.bind(this));
+  }
 
   addHundlerFilter(hundler) {
     this._parentElement.addEventListener("click", function (e) {
       const input = e.target.closest(".option__btn");
-      // console.log(input.textContent);
       if (!input) return;
+      document.querySelector(".country__container").innerHTML = "";
       hundler(input.textContent);
     });
   }

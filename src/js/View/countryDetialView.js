@@ -22,7 +22,6 @@ class CountryDetialView extends View {
 
   _clearCountryDetial() {
     this._parentElement.innerHTML = "";
-    console.log(this._parentElement);
   }
 
   _toggleWindows() {
@@ -42,7 +41,8 @@ class CountryDetialView extends View {
     this._countryContainer.addEventListener("click", function (e) {
       const countryEl = e.target.closest(".country");
       if (!countryEl) return;
-      const country = document.querySelector(".country__name");
+      // const country = document.querySelectorAll(".country__name");
+      const country = countryEl.querySelector(".country__name");
       hundler(country.textContent);
     });
   }
@@ -56,38 +56,42 @@ class CountryDetialView extends View {
         <div class="country__data">
             <h3 class="country__name">${this._data.name}</h3>
             <div class="country__info">
-              <p class="country__row"><span>Native Name:</span>${
+              <p class="country__row"><span>Native Name: </span>${
                 this._data.nativeName
               }</p>
-              <p class="country__row"><span>Population:</span>${
+              <p class="country__row"><span>Population: </span>${
                 this._data.population
               }</p>
-              <p class="country__row"><span>Region:</span>${
+              <p class="country__row"><span>Region: </span>${
                 this._data.region
               }</p>
-              <p class="country__row"><span>Sub Region:</span>${
+              <p class="country__row"><span>Sub Region: </span>${
                 this._data.subRegion
               }</p>
-              <p class="country__row"><span>Capital:</span>${
+              <p class="country__row"><span>Capital: </span>${
                 this._data.capital
               }</p>
-              <p class="country__row"><span>Top Level Domain:</span>${
+              <p class="country__row"><span>Top Level Domain: </span>${
                 this._data.topleveldomain
               }</p>
-              <p class="country__row"><span>Currencies:</span>${
+              <p class="country__row"><span>Currencies: </span>${
                 this._data.currencies
               }</p>
               <p class="country__row">
-                <span>Languages:</span>${this._data.languages.map(
+                <span>Languages: </span>${this._data.languages.map(
                   (lng) => lng.name
                 )}.
               </p>
             </div>
-            <div class="country__borders">
-              <p class="country__row">
-                <span>Border Countries:</span>${this._data.borders.map(
-                  (border) => border
-                )}
+            <div class="borders">
+            <span>Border Countries: </span>
+              <p class="country__row borders__cont">
+                ${this._data.borders
+                  .map(
+                    (border) =>
+                      `<span class="country__borders"> ${border} </span>`
+                  )
+                  .join(" ")}
               </p>
             </div>
           </div>

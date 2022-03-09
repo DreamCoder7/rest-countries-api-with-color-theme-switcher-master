@@ -9,20 +9,31 @@ export const state = {
   countryDetial: [],
   query: "",
 };
-console.log(state);
 
-export const loadCountry = async function (id) {
+export const loadCountry = async function () {
   try {
-    const data = await getJSON(`${API}${id}`);
-    console.log(data);
+    // const data = await getJSON(`${API}${id}`);
+    const data = await getJSON(`${API}all`); // TEMP : All country
 
-    state.country = {
-      flag: data[0].flag,
-      name: data[0].name,
-      population: data[0].population,
-      region: data[0].region,
-      capital: data[0].capital,
-    };
+    // TEMP : All country
+    state.country = data.map((c) => {
+      return {
+        flag: c.flag,
+        name: c.name,
+        population: c.population,
+        region: c.region,
+        capital: c.capital,
+      };
+    });
+    // TEMP
+
+    // state.country = {
+    //   flag: data[0].flag,
+    //   name: data[0].name,
+    //   population: data[0].population,
+    //   region: data[0].region,
+    //   capital: data[0].capital,
+    // };
   } catch (err) {
     console.error(err);
   }
@@ -30,7 +41,7 @@ export const loadCountry = async function (id) {
 
 export const loadCountryDetial = async function (id) {
   try {
-    const data = await getJSON(`${API}${id}`);
+    const data = await getJSON(`${API}name/${id}`);
 
     state.countryDetial = {
       flag: data[0].flag,
@@ -49,7 +60,7 @@ export const loadCountryDetial = async function (id) {
     console.error(err);
   }
 };
-// loadCountryDetial("belgium");
 
-export const loadSearchResult = function (id) {};
-// loadCountry();
+// export const loadSearchResult = function (id) {
+//   console.log(id);
+// };
