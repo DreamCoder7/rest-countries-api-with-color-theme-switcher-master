@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: (https://rest-countries-ab.netlify.app)
+- Solution URL: (https://www.frontendmentor.io/solutions/restcountriesapiwithcolorthemeswitchermaster-NSMobneI_)
 - Live Site URL: (https://rest-countries-ab.netlify.app)
 
 ## My process
