@@ -1,3 +1,5 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import { async } from "regenerator-runtime";
 import * as model from "./model.js";
 import countryView from "./View/countryView.js";

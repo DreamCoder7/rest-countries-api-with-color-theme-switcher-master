@@ -59,9 +59,9 @@ class CountryDetialView extends View {
               <p class="country__row"><span>Native Name: </span>${
                 this._data.nativeName
               }</p>
-              <p class="country__row"><span>Population: </span>${
-                this._data.population
-              }</p>
+              <p class="country__row"><span>Population: </span>${(
+                this._data.population / 1000000
+              ).toFixed(1)}M</p>
               <p class="country__row"><span>Region: </span>${
                 this._data.region
               }</p>

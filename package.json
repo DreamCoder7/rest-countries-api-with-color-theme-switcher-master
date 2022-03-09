@@ -10,5 +10,8 @@
   "devDependencies": {
     "parcel": "^2.3.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "core-js": "^3.21.1",
+    "regenerator-runtime": "^0.13.9"
+  }
 }
